@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>Manage Product Image</h2>
+<form class="form">
+  <mat-dialog-content class="mat-typography">
+    <div class="col-12">
+      <label for="file">Product Image</label>
+      <input type="file" (change)="onFileSelected($event)" id="file" class="form-control">
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button (click)="uploadImage()">Add Image</button>
+  </mat-dialog-actions>
+</form>
+
+<h1>Images</h1>
+<div class="col-12 img" *ngIf="images.length > 0">
+  <div class="img-list">
+  <div class="img-item" *ngFor="let img of images">
+    <img [src]="img.resourceUrl" alt="Product Images"  width="100"><br>
+  </div>
+  </div>
+</div>
+<button mat-button (click)="close()">Close</button>
+
+
+

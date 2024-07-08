@@ -1,0 +1,93 @@
+<div class="outer">
+  <div class="container">
+    <div class="header">
+      <div class="tittle">
+        <h1>Product Management</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="search">
+        <div class="col-4">
+          <form [formGroup]="searchForm">
+            <input type="search" name="" id="" formControlName="text" class="form-control" placeholder="search here..">
+          </form>
+        </div>
+        <div class="col-4">
+          <button class="btn btn-primary" (click)="openNewProductForm()">+ New Product</button>
+        </div>
+      </div>
+      <div class="col-12">
+        <table class="table" >
+          <thead>
+          <tr>
+            <th>#ID</th>
+            <th>Description</th>
+            <th>QTY</th>
+            <th>Unit Price</th>
+            <th>Images</th>
+            <th>Tools</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngIf="isEmpty">
+            <td colspan="10" class="not-context" style="text-align: center">
+              No results found!
+            </td>
+          </tr>
+          <ng-container *ngIf="!isEmpty">
+            <tr *ngFor="let items of dataList">
+              <td>
+                <div class="context">
+                  {{items?.propertyId}}
+                  <mat-icon matTooltip="Copy clipboard" class="copy" (click)="copyItem(items?.propertyId)">content_copy</mat-icon>
+                </div>
+              </td>
+              <td>
+                <div class="context">
+                  {{items?.description}}
+                </div>
+              </td>
+              <td>
+                <div class="context">
+                  {{items?.qty}}
+                </div>
+              </td>
+              <td>
+                <div class="context">
+                  USD{{items?.unitPrice}} || LKR{{convertToLKR(items?.unitPrice) | number:'1.2-2'}}
+                </div>
+              </td>
+              <td>
+                <div class="context">
+                  <span (click)="openProductImageForm(items?.propertyId)" matTooltip="Manage images">Manage</span>
+                </div>
+              </td>
+              <td>
+                <div class="context">
+                  <div class="button">
+                    <button color="warn" mat-icon-button matTooltip="Delete" aria-label="delete" (click)="deleteProduct(items?.propertyId)">
+                      <mat-icon>delete_sweep</mat-icon>
+                    </button>
+                    <button color="primary" matTooltip="Update" mat-icon-button aria-label="update" (click)="openUpdateProductForm(items)">
+                      <mat-icon>edit</mat-icon>
+                    </button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </ng-container>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-12">
+        <mat-paginator [length]="count"
+                       [pageIndex]="page"
+                       [pageSize]="size"
+                       [pageSizeOptions]="[10,20,30,40,50,60,70,80,90,100]"
+                       (page)="getServerData($event)"
+                       aria-label="Select page">
+        </mat-paginator>
+      </div>
+    </div>
+  </div>
+</div>

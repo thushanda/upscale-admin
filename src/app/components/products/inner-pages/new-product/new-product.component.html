@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>New Product</h2>
+<form action="" class="form" [formGroup]="form">
+  <mat-dialog-content class="mat-typography">
+
+    <div class="col-12">
+      <label for="description">Product Description</label>
+      <input type="text" formControlName="description" id="description" class="form-control">
+    </div>
+    <div class="col-12">
+      <label for="unit_price">Product Unit Price</label>
+      <input type="number" formControlName="unitPrice" id="unit_price" class="form-control">
+    </div>
+    <div class="col-12">
+      <label for="qty">Product QTY On Hand</label>
+      <input type="text" formControlName="qty" id="qty" class="form-control">
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-raised-button (click)="close()">Close</button>
+    <button color="primary" mat-raised-button type="button" (click)="create()">Save Product</button>
+  </mat-dialog-actions>
+</form>

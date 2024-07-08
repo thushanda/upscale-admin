@@ -1,0 +1,43 @@
+.outer{
+  margin: 20px 0;
+
+  .header{
+    .tittle{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      border-bottom: 1px solid black;
+    }
+  }
+
+
+  .table{
+    margin-top: 20px;
+
+    .context{
+      display:flex;
+      align-items: center;
+      height: 50px;
+
+      .copy{
+        width: 20px;
+        height: 20px;
+        font-size: 15px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover{
+          color: red;
+        }
+      }
+
+      .button{
+        font-size: 15px;
+      }
+    }
+  }
+
+}

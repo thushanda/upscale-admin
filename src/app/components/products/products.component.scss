@@ -1,0 +1,66 @@
+.outer{
+  margin: 20px 0;
+
+  .header{
+    .tittle{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      border-bottom: 1px solid black;
+    }
+  }
+
+
+  .table{
+    margin-top: 20px;
+
+
+    .context{
+      display:flex;
+      align-items: center;
+      height: 50px;
+
+      .copy{
+        width: 20px;
+        height: 20px;
+        font-size: 15px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 10px;
+
+        &:hover{
+          color: red;
+        }
+      }
+
+      .button{
+        mat-icon{
+          font-size: 20px;
+        }
+      }
+
+      span{
+        color: blue;
+        cursor: pointer;
+
+        &:hover{
+          color: red;
+        }
+      }
+    }
+  }
+
+  .search{
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+
+   .col-4:first-child{
+     margin-right: 20px;
+   }
+  }
+
+}
